@@ -160,10 +160,10 @@ var MAINAPP = (function (nsp, $, domU, strU) {
 
     //Setup navigation object
     var setUpNavigation = function () {
+        var cQuestion = 0;
         navigationProto = {
             questionsArray: questionsArray,
             totalQuestions: questionsArray.length,
-            currentQuestion: 0,
             hideQuestion: function () {
                 var curQuestion = this.questionsArray[this.currentQuestion];
                 curQuestion.hideQuestion();
@@ -173,6 +173,12 @@ var MAINAPP = (function (nsp, $, domU, strU) {
                 newQuestion.hideFeedback();
                 newQuestion.populateTheQuestion();
                 newQuestion.displayQuestion();
+            },
+            get currentQuestion() {
+                return cQuestion;
+            },
+            set currentQuestion(value) {
+                cQuestion = value;
             }
         };
 
