@@ -44,13 +44,10 @@ var MAINAPP = (function (nsp, $, domU, strU) {
 
         //Transfer Data
         this.questionDiv = (obj.type === "true-false") ? "multi-choice" : obj.type;
-        this.type = obj.type;
-        this.id = obj.id;
-        this.questionText = obj.questionText;
+        for (let i in obj) {
+            this[i] = obj[i];
+        }
         this.distractorText = obj.distractors;
-        this.correctResp = obj.correctResp;
-        this.feedback = obj.feedback;
-        this.weight = obj.weight;
         this.result = "no-answer";
         this.studentResp = "";
         this.correct = false;
